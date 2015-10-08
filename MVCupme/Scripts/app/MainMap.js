@@ -19,15 +19,15 @@ function addMapHm() {
             var SitioHm = L.marker(latlng, glo.MarkerHm).bindLabel(textlabel, { noHide: false, offset: [20, -40] });
             htmlpopup =
                 '<div class="panel panel-primary">' +
-                    '<div class="panel-heading">HOMER</div>' +
+                    '<div class="panel-heading">ALTERNATIVAS DE ENERGIZACIÓN</div>' +
                         '<div class="popupstyle">' +
                             '<button class="btn btn-primary pull-right btn-xs " data-toggle="tooltip" data-placement="left" title="Acercar" type="button" type="button" onclick="zoomHm(\'' + latlng.lng + '\',\'' + latlng.lat + '\')">' +
                                 '<span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>' +
                             '</button>' +
                             '<h5><strong  class="primary-font">' + feature.properties.NOMBRE_SITIO + '</strong><br>' +
                             '<small class="text-muted">'+feature.properties.NOMBREMUN+'</small> '+
-                            '<hr><small>Curva:</small> ' + feature.properties.CUR_ID + '<br>' +
-                            '<small>Localidad:</small> ' + feature.properties.LOC_ID + '<br>' +                            
+                            '<hr><a href="http://www.upme.gov.co" target="_blank"><small>Curva:</small></a> ' + feature.properties.CUR_ID + '<br>' +
+                            '<a href="http://www.upme.gov.co" target="_blank"><small>Localidad:</small></a> ' + feature.properties.LOC_ID + '<br>' +                            
                             '<small>Radiacion Solar:</small> ' + feature.properties.ID_RS + ' <br>' +
                             '<small>RD</small> ' + feature.properties.ID_RD + ' <br>' +
                             '<small>RV:</small> ' + feature.properties.ID_RV + '<br>'                             
@@ -67,7 +67,10 @@ function addMapHm() {
             });
             SitioHm.on('popupclose', function (e) {
                 $("#menu-holder").hide();
-            })
+            });
+            SitioHm.on('popupopen', function (e) {
+                map.panTo(latlng);
+            });
             return SitioHm;
         }        
     });

@@ -190,22 +190,16 @@
 
 <div class="col-sm-2 col-md-2" id="panel_formulario" style="max-width:350px;min-width:300px;">
     <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Opciones.</h3>
-        </div>
         <div class="panel-body">
             <div>
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                  
-                    
                     <li role="presentation" class="active">
                         <a href="#Busqueda" aria-controls="Busqueda" role="tab" data-toggle="tab">
-                            <span class="glyphicon glyphicon-search" data-toggle="tooltip" id="BusquedaColor" data-placement="top" title="" data-original-title="Busqueda"></span>
+                            <span class="glyphicon glyphicon-search" data-toggle="tooltip" id="BusquedaColor" data-placement="top" title="" data-original-title="Busqueda"></span> Busqueda.
                         </a>
                     </li>
-
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
@@ -213,9 +207,9 @@
                     <div role="tabpanel" class="tab-pane active" id="Busqueda">
                         <br>
                         <form style="text-align: center;">
-                            <h5>Ingrese el nombre del municipio de interes</h5>
+                            <h5>Ingrese el nombre del Departamento o Municipio de interés.</h5>
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" id="city" placeholder="Nombre Municipio">
+                                <input type="text" class="form-control" id="city" placeholder="Departamento Municipio">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button" id="BtnBusquedaMun" disabled>
                                         <span class="glyphicon glyphicon-search"></span>
@@ -275,7 +269,7 @@
                             <div class="col-sm-12 col-md-12" id="BaseESRIStreets" value="Streets">
                                 <a href="#" class="thumbnail">
                                     <img src="~/images/baselayers/calles.PNG" style="max-width:100%;">
-                                    <div class="carousel-caption"><center><h6>ESRI Streets</h6></center></div>
+                                    <div class="carousel-caption"><center><h6>Calles</h6></center></div>
                                 </a>
                             </div>
                             
@@ -286,7 +280,7 @@
                             <div class="col-sm-12 col-md-12" id="BaseESRISatellite" value="Imagery">
                                 <a href="#" class="thumbnail">
                                     <img src="~/images/baselayers/satelite.PNG" style="max-width:100%;">
-                                    <div class="carousel-caption"><center><h6 style="color:rgba(255, 255, 255,1)">ESRI Satelite</h6></center></div>
+                                    <div class="carousel-caption"><center><h6 style="color:rgba(255, 255, 255,1)">Satelite</h6></center></div>
                                 </a>
                             </div>
                         </div><!--/row-fluid-->
@@ -296,7 +290,7 @@
                             <div class="col-sm-12 col-md-12" id="BaseESRITopo" value="Topographic">
                                 <a href="#" class="thumbnail">
                                     <img src="~/images/baselayers/topografic.PNG" style="max-width:100%;">
-                                    <div class="carousel-caption"><center><h6>ESRI Topographic</h6></center></div>
+                                    <div class="carousel-caption"><center><h6>Topografico</h6></center></div>
                                 </a>
                             </div>
                             
@@ -322,8 +316,10 @@
                 </a>
     </div><!--/myCarousel-->
 </div>
-<div class='mouse-position'>
-    <b id='mousemove'><b />
+<div class='mouse-position panel'>
+    <div class="panel-body">
+        <h6> <b id='mousemove'><b /></h6>
+    </div>
 </div>
 @Scripts.Render("~/bundles/appMapGlobal")
 @Scripts.Render("~/bundles/appMap")

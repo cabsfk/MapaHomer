@@ -48,7 +48,7 @@ var map = L.map('map', {
     center: [4.12521648, -74.5020],
     zoom: 5,
     minZoom: 5,
-    maxZoom:11,
+    maxZoom:12,
     maxBounds: bounds,
     zoomControl: false
 });
@@ -80,7 +80,7 @@ function getColor(d) {
 
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML += '<i ><img src="/MapaHomer/images/leyend/Homer.png" height="18px"></i> Sitio Homer<br>';
+    div.innerHTML += '<i ><img src="/MapaHomer/images/leyend/Homer.png" height="18px"></i> Sitio<br>';
     div.innerHTML += '<i ><img src="/MapaHomer/images/leyend/Cluster.png" height="18px"></i> Agrupaciones<br>';
     div.innerHTML += '<i ><img src="/MapaHomer/images/leyend/municipioSelecionado.png"  height="17px"></i>Municipio <br> Seleccionado<br>';
     return div;
@@ -117,14 +117,15 @@ $('.carousel').carousel({
     interval: 7000
 });
 
-var OpenMapSurfer_Roads = L.tileLayer('http://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}', {
-    minZoom: 0,
-    maxZoom: 20,
-    attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+var OpenMapSurfer_Roads = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
+    type: 'map',
+    ext: 'jpg',
+    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    subdomains: '1234'
 });
 
-var LyrBase = L.esri.basemapLayer('Imagery').addTo(map);;
-var LyrLabels;
+var LyrBase = L.esri.basemapLayer('Imagery').addTo(map);
+var LyrLabels = L.esri.basemapLayer('ImageryLabels').addTo(map);
 
 function setBasemap(basemap) {
     if (map.hasLayer(LyrBase)) {
@@ -136,13 +137,21 @@ function setBasemap(basemap) {
         LyrBase = OpenMapSurfer_Roads;
     }
     map.addLayer(LyrBase);
+    if (map.hasLayer(LyrLabels)) {
+        map.removeLayer(LyrLabels);
+    }
+
+    if (basemap === 'ShadedRelief' || basemap === 'Oceans' || basemap === 'Gray' || basemap === 'DarkGray' || basemap === 'Imagery' || basemap === 'Terrain') {
+        LyrLabels = L.esri.basemapLayer(basemap + 'Labels');
+        map.addLayer(LyrLabels);
+    }
     $(".esri-leaflet-logo").hide();
     $(".leaflet-control-attribution").hide();
 }
 
 $("#BaseESRIStreets, #BaseESRISatellite, #BaseESRITopo, #BaseOSM").click(function () {
     setBasemap($(this).attr('value'));
-})
+});
 
 $(".esri-leaflet-logo").hide();
 $(".leaflet-control-attribution").hide();
@@ -155,6 +164,10 @@ var osm2 = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}
 });
 
 var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true, width: 190, height: 90, zoomLevelOffset: -6 });
+
+map.on('mousemove', function (e) {
+    window[e.type].innerHTML = 'Long:' + e.latlng.lng.toFixed(6) + '   Lat:' + e.latlng.lat.toFixed(6);
+});
 
 //miniMap.addTo(map);
 
@@ -175,17 +188,6 @@ $(function () {
     } (i);
 });
 
-/*
-$('#date_ini').datetimepicker({
-    format: 'DD/MM/YYYY',
-    locale: 'es',
-    defaultDate: '01/01/' + moment().format('YYYY')
-});
-$('#date_fin').datetimepicker({
-    format: 'DD/MM/YYYY',
-    locale: 'es',
-    defaultDate: moment()
-});*/
 
 function zoomHm(x, y) {
     var latLng = L.latLng(y, x);
@@ -196,33 +198,6 @@ $("#panel_superDerecho").hide();
 $("#menu-holder").hide();
 
 waitingDialog.show();
-/*
-
-var query_Mineral = L.esri.Tasks.query({
-    url: config.dominio + config.urlHostDataMA + 'MapServer/'+config.EP_MINERALES
-});
-
-query_Mineral.where("1='1'").returnGeometry(false).run(function (error, featureCollection) {
-    var data = [];
-    $.each(featureCollection.features.reverse(), function (index, value) {
-        data[value.properties.ID_MINERAL ] = value.properties.NOMBRE ;
-    });
-    glo.textMineral = data;
-});
-
-
-
-var query_Estudio = L.esri.Tasks.query({
-    url: config.dominio + config.urlHostDataMA + 'MapServer/' + config.EP_ESTUDIOS
-});
-
-query_Estudio.where("1='1'").returnGeometry(false).run(function (error, featureCollection) {
-    var data = [];
-    $.each(featureCollection.features.reverse(), function (index, value) {
-        data[value.properties.ID_ESTUDIO] = value.properties.NOMBRE + ' ( ' + value.properties.ANIO+' ) ';
-    });
-    glo.listEstudio = data;
-});*/
 
 
 

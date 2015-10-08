@@ -573,7 +573,7 @@ background: linear-gradient(#113662, #02355f);
    -moz-transform: translate(-5px,-15px);
    -o-transform: translate(-5px,-15px);
    -ms-transform: translate(-5px,-15px);
-   transform: translate(-5px,-15px);
+   transform: translate(-5px,-50px);
    -webkit-transition-delay: 0s;
    -moz-transition-delay: 0s;
    -o-transition-delay: 0s;
@@ -656,3 +656,34 @@ background: linear-gradient(#113662, #02355f);
 	background: -moz-linear-gradient(top, #fddfba,  #fab371);
 	background: linear-gradient(#fddfba, #fab371);
 	}
+
+.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+
+}
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255,255,255,1);
+}
+
+.navbar-inverse .navbar-nav > li > h5 > small {
+    color:#002452;
+}
+
+#tituloEstudio, .text-info {
+    color: #04405F;
+}
+
+.mouse-position>.panel-body {
+    padding: 1px;
+}

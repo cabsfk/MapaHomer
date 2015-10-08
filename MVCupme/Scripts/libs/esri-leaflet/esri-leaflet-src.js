@@ -3246,7 +3246,7 @@ EsriLeaflet.Layers.FeatureGrid = L.Class.extend({
 
             // we also need to update the geojson id for createLayers() to function
             feature.id = response.objectId;
-            this.createLayers([feature]);
+            //this.createLayers([feature]);
           }
 
           if(callback){
@@ -3259,8 +3259,8 @@ EsriLeaflet.Layers.FeatureGrid = L.Class.extend({
     updateFeature: function(feature, callback, context){
       this._service.updateFeature(feature, function(error, response){
         if(!error){
-          this.removeLayers([feature.id], true);
-          this.createLayers([feature]);
+          //this.removeLayers([feature.id], true);
+          //this.createLayers([feature]);
         }
 
         if(callback){

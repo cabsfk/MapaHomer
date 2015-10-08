@@ -673,9 +673,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63944</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/MapaHomer</IISUrl>
+          <IISUrl>http://localhost/MapaEnergiaAlternativas</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost/MapaHomer</IISAppRootUrl>
+          <IISAppRootUrl>http://localhost/MapaEnergiaAlternativas</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

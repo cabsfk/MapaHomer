@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F4B8AA
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapaHomer", "MVCupme\MapaHomer.csproj", "{54D70CFE-A660-41DC-AF82-9B7CE676E623}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapaEnergiaAlternativas", "MVCupme\MapaEnergiaAlternativas.csproj", "{54D70CFE-A660-41DC-AF82-9B7CE676E623}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B6536B7F-F5C9-4362-847F-B6F8D5D5F5DB} = {B6536B7F-F5C9-4362-847F-B6F8D5D5F5DB}
 	EndProjectSection
