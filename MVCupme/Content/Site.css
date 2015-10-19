@@ -569,20 +569,32 @@ background: linear-gradient(#113662, #02355f);
 	box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
 	-webkit-box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
 	-moz-box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
-	-webkit-transform: translate(-5px,-15px);
-   -moz-transform: translate(-5px,-15px);
-   -o-transform: translate(-5px,-15px);
-   -ms-transform: translate(-5px,-15px);
-   transform: translate(-5px,-50px);
-   -webkit-transition-delay: 0s;
+	-webkit-transform: translate(-5px,-75px);
+   -moz-transform: translate(-5px,-75px);
+   -o-transform: translate(-5px,-75px);
+   -ms-transform: translate(-5px,-75px);
+   transform: translate(-5px,-75px);
+    -webkit-transition-delay: 0s;
    -moz-transition-delay: 0s;
    -o-transition-delay: 0s;
    -ms-transition-delay: 0s;
    transition-delay: 0s;
 	}
 
-.price_table .column_1:hover .header_row_1,	
-.price_table .column_1:hover .header_row_2,
+
+
+
+.price_table .column_1:hover .header_row_1{	
+	padding-left: 2px;
+	padding-right: 2px;
+	height: 32px;
+    transform: scale(1.4);
+}
+.price_table .column_1:hover .header_row_2{	
+	padding-left: 2px;
+	padding-right: 2px;
+	transform: scale(1.4);
+	}
 .price_table .column_1:hover .row_style_0,
 .price_table .column_1:hover .row_style_1,
 .price_table .column_1:hover .row_style_2,
@@ -590,7 +602,10 @@ background: linear-gradient(#113662, #02355f);
 .price_table .column_1:hover .row_style_footer_2
 {	padding-left: 2px;
 	padding-right: 2px;
+	transform: scale(1.4);
+	height: 22px;
 	}
+
 	
 /**** DATA ROWS  ****/
 
